@@ -16,6 +16,9 @@
 @interface MainPlayingLayer : CCLayer <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate> {
     NSMutableArray *_targets;
     NSMutableArray *_projectiles;
+
+    CCLabelTTF *_scoreLabel;
+    NSInteger _score;
 }
 
 // returns a CCScene that contains the MainPlayingLayer as the only child

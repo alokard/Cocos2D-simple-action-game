@@ -52,7 +52,8 @@
     _projectiles = nil;
 	
 	// don't forget to call "super dealloc"
-	[super dealloc];
+    [_scoreLabel release];
+    [super dealloc];
 }
 
 // on "init" you need to initialize your instance
@@ -64,21 +65,43 @@
         _targets = [NSMutableArray new];
         _projectiles = [NSMutableArray new];
 
-        // ask director for the window size
-        CGSize size = [[CCDirector sharedDirector] winSize];
+        [self createScoreLabel];
 
-        CCSprite *player = [CCSprite spriteWithFile:@"Player.png"];
-        player.position = ccp(player.contentSize.width/2, size.height/2);
-
-        [self addChild: player];
+        [self createPlayer];
 
         [self schedule:@selector(gameLoop:) interval:1.0];
-        [self schedule:@selector(update:)];
+        [self schedule:@selector(updateGame:)];
 
 //        [self createMenu];
 
     }
     return self;
+}
+
+- (void)createScoreLabel {
+
+    _score = 0;
+    // create and initialize a Label
+    CGFloat fontSize = 16;
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        fontSize = 24;
+    }
+    _scoreLabel = [[CCLabelTTF alloc] initWithString:@"Score: 0" fontName:@"Marker Felt" fontSize:16];
+
+    [self updateScore];
+
+    // add the label as a child to this Layer
+    [self addChild:_scoreLabel];
+}
+
+- (void)createPlayer {
+// ask director for the window size
+    CGSize size = [[CCDirector sharedDirector] winSize];
+
+    CCSprite *player = [CCSprite spriteWithFile:@"Player.png"];
+    player.position = ccp(player.contentSize.width/2, size.height/2);
+
+    [self addChild: player];
 }
 
 #pragma mark logic
@@ -174,7 +197,7 @@
     [self addTarget];
 }
 
-- (void)update:(ccTime)dt {
+- (void)updateGame:(ccTime)dt {
     NSMutableArray *projectilesToDelete = [NSMutableArray new];
     for (CCSprite *projectile in _projectiles) {
         CGRect projectileRect = CGRectMake(
@@ -203,6 +226,7 @@
         for (CCSprite *target in targetsToDelete) {
             [_targets removeObject:target];
             [self removeChild:target cleanup:YES];
+            _score++;
         }
 
 
@@ -214,6 +238,19 @@
         [self removeChild:projectile cleanup:YES];
     }
     [projectilesToDelete release];
+
+    [self updateScore];
+}
+
+- (void)updateScore {
+
+    [_scoreLabel setString:[NSString stringWithFormat:@"Score: %d", _score]];
+
+    // ask director for the window size
+    CGSize size = [[CCDirector sharedDirector] winSize];
+
+    // position the label on the center of the screen
+    _scoreLabel.position =  ccp( size.width - _scoreLabel.contentSize.width/2 , size.height - _scoreLabel.contentSize.height/2 );
 }
 
 #pragma mark Cocos2D touches

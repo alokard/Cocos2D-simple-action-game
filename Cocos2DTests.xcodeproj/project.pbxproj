@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D61850DE5ED2E0499CDE8495 /* Player@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6185A7BB0D4ACDB939D448F /* Player@2x.png */; };
+		D61856D47B13497220184648 /* Projectile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D618545D5CB6DAF0971A79A0 /* Projectile@2x.png */; };
+		D618593AA601D06A49A3B88C /* Target@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D61855C047199DC7D574EC5B /* Target@2x.png */; };
+		D6185E4739C6BC5168158ECA /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6185F6D015EFA1D8A867081 /* Default@2x.png */; };
 		EF31A88F15E3EF0300EABCDD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF31A88E15E3EF0300EABCDD /* QuartzCore.framework */; };
 		EF31A89115E3EF0300EABCDD /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF31A89015E3EF0300EABCDD /* OpenGLES.framework */; };
 		EF31A89315E3EF0300EABCDD /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF31A89215E3EF0300EABCDD /* OpenAL.framework */; };
@@ -131,11 +135,18 @@
 		EF31AA1215E3EF0500EABCDD /* vec4.c in Sources */ = {isa = PBXBuildFile; fileRef = EF31AA1115E3EF0500EABCDD /* vec4.c */; };
 		EF31AA1715E3EF0500EABCDD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EF31AA1615E3EF0500EABCDD /* main.m */; };
 		EF31AA1A15E3EF0500EABCDD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF31AA1915E3EF0500EABCDD /* AppDelegate.m */; };
-		EF31AA1D15E3EF0500EABCDD /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = EF31AA1C15E3EF0500EABCDD /* HelloWorldLayer.m */; };
+		EF31AA1D15E3EF0500EABCDD /* MainPlayingLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = EF31AA1C15E3EF0500EABCDD /* MainPlayingLayer.m */; };
 		EF31AA2015E3EF0500EABCDD /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = EF31AA1F15E3EF0500EABCDD /* IntroLayer.m */; };
+		EF31AA2A15E3F27C00EABCDD /* Player.png in Resources */ = {isa = PBXBuildFile; fileRef = EF31AA2715E3F27C00EABCDD /* Player.png */; };
+		EF31AA2B15E3F27C00EABCDD /* Projectile.png in Resources */ = {isa = PBXBuildFile; fileRef = EF31AA2815E3F27C00EABCDD /* Projectile.png */; };
+		EF31AA2C15E3F27C00EABCDD /* Target.png in Resources */ = {isa = PBXBuildFile; fileRef = EF31AA2915E3F27C00EABCDD /* Target.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D618545D5CB6DAF0971A79A0 /* Projectile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Projectile@2x.png"; sourceTree = "<group>"; };
+		D61855C047199DC7D574EC5B /* Target@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Target@2x.png"; sourceTree = "<group>"; };
+		D6185A7BB0D4ACDB939D448F /* Player@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Player@2x.png"; sourceTree = "<group>"; };
+		D6185F6D015EFA1D8A867081 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/Default@2x.png"; sourceTree = "<group>"; };
 		EF31A88A15E3EF0300EABCDD /* Cocos2DTests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cocos2DTests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF31A88E15E3EF0300EABCDD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		EF31A89015E3EF0300EABCDD /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -394,10 +405,13 @@
 		EF31AA1615E3EF0500EABCDD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EF31AA1815E3EF0500EABCDD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EF31AA1915E3EF0500EABCDD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		EF31AA1B15E3EF0500EABCDD /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
-		EF31AA1C15E3EF0500EABCDD /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
+		EF31AA1B15E3EF0500EABCDD /* MainPlayingLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainPlayingLayer.h; sourceTree = "<group>"; };
+		EF31AA1C15E3EF0500EABCDD /* MainPlayingLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainPlayingLayer.m; sourceTree = "<group>"; };
 		EF31AA1E15E3EF0500EABCDD /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
 		EF31AA1F15E3EF0500EABCDD /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
+		EF31AA2715E3F27C00EABCDD /* Player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Player.png; sourceTree = "<group>"; };
+		EF31AA2815E3F27C00EABCDD /* Projectile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Projectile.png; sourceTree = "<group>"; };
+		EF31AA2915E3F27C00EABCDD /* Target.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Target.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -458,8 +472,8 @@
 			children = (
 				EF31AA1815E3EF0500EABCDD /* AppDelegate.h */,
 				EF31AA1915E3EF0500EABCDD /* AppDelegate.m */,
-				EF31AA1B15E3EF0500EABCDD /* HelloWorldLayer.h */,
-				EF31AA1C15E3EF0500EABCDD /* HelloWorldLayer.m */,
+				EF31AA1B15E3EF0500EABCDD /* MainPlayingLayer.h */,
+				EF31AA1C15E3EF0500EABCDD /* MainPlayingLayer.m */,
 				EF31AA1E15E3EF0500EABCDD /* IntroLayer.h */,
 				EF31AA1F15E3EF0500EABCDD /* IntroLayer.m */,
 				EF31A8A115E3EF0300EABCDD /* Resources */,
@@ -472,6 +486,8 @@
 		EF31A8A115E3EF0300EABCDD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D6185F6D015EFA1D8A867081 /* Default@2x.png */,
+				EF31AA2615E3F27C00EABCDD /* Players */,
 				EF31A8A215E3EF0300EABCDD /* Default.png */,
 				EF31A8A415E3EF0300EABCDD /* Default-Landscape~ipad.png */,
 				EF31A8A615E3EF0300EABCDD /* fps_images.png */,
@@ -832,6 +848,20 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		EF31AA2615E3F27C00EABCDD /* Players */ = {
+			isa = PBXGroup;
+			children = (
+				D61855C047199DC7D574EC5B /* Target@2x.png */,
+				D618545D5CB6DAF0971A79A0 /* Projectile@2x.png */,
+				D6185A7BB0D4ACDB939D448F /* Player@2x.png */,
+				EF31AA2715E3F27C00EABCDD /* Player.png */,
+				EF31AA2815E3F27C00EABCDD /* Projectile.png */,
+				EF31AA2915E3F27C00EABCDD /* Target.png */,
+			);
+			name = Players;
+			path = Resources/Players;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -895,6 +925,13 @@
 				EF31A8B715E3EF0300EABCDD /* Icon@2x.png in Resources */,
 				EF31A8BA15E3EF0300EABCDD /* iTunesArtwork in Resources */,
 				EF31A9F815E3EF0500EABCDD /* ChangeLog in Resources */,
+				EF31AA2A15E3F27C00EABCDD /* Player.png in Resources */,
+				EF31AA2B15E3F27C00EABCDD /* Projectile.png in Resources */,
+				EF31AA2C15E3F27C00EABCDD /* Target.png in Resources */,
+				D6185E4739C6BC5168158ECA /* Default@2x.png in Resources */,
+				D61850DE5ED2E0499CDE8495 /* Player@2x.png in Resources */,
+				D61856D47B13497220184648 /* Projectile@2x.png in Resources */,
+				D618593AA601D06A49A3B88C /* Target@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1007,7 +1044,7 @@
 				EF31AA1215E3EF0500EABCDD /* vec4.c in Sources */,
 				EF31AA1715E3EF0500EABCDD /* main.m in Sources */,
 				EF31AA1A15E3EF0500EABCDD /* AppDelegate.m in Sources */,
-				EF31AA1D15E3EF0500EABCDD /* HelloWorldLayer.m in Sources */,
+				EF31AA1D15E3EF0500EABCDD /* MainPlayingLayer.m in Sources */,
 				EF31AA2015E3EF0500EABCDD /* IntroLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1030,7 +1067,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1049,7 +1086,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1065,11 +1102,13 @@
 				GCC_PREFIX_HEADER = Cocos2DTests/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"Cocos2DTests/libs/kazmath/include\"";
 				INFOPLIST_FILE = Cocos2DTests/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1083,11 +1122,13 @@
 				GCC_PREFIX_HEADER = Cocos2DTests/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"Cocos2DTests/libs/kazmath/include\"";
 				INFOPLIST_FILE = Cocos2DTests/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1112,6 +1153,7 @@
 				EF31AA2515E3EF0500EABCDD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

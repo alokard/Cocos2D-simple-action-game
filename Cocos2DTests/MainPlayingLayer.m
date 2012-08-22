@@ -8,10 +8,12 @@
 
 
 // Import the interfaces
+#import <AVFoundation/AVFoundation.h>
 #import "MainPlayingLayer.h"
 
 // Needed to obtain the Navigation Controller
 #import "AppDelegate.h"
+#import "GameOverLayer.h"
 
 #pragma mark defines
 
@@ -53,6 +55,7 @@
 	
 	// don't forget to call "super dealloc"
     [_scoreLabel release];
+    _scoreLabel = nil;
     [super dealloc];
 }
 
@@ -65,6 +68,9 @@
         _targets = [NSMutableArray new];
         _projectiles = [NSMutableArray new];
 
+        _score = 0;
+        _lostTargetsCount = 0;
+
         [self createScoreLabel];
 
         [self createPlayer];
@@ -74,13 +80,13 @@
 
 //        [self createMenu];
 
+
     }
     return self;
 }
 
 - (void)createScoreLabel {
 
-    _score = 0;
     // create and initialize a Label
     CGFloat fontSize = 16;
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
@@ -188,6 +194,10 @@
     CCSprite *sprite = (CCSprite *)sender;
     if (sprite.tag == TARGET_TAG) { // target
         [_targets removeObject:sprite];
+        _lostTargetsCount++;
+        if (_lostTargetsCount > 2) {
+            [[CCDirector sharedDirector] replaceScene:[GameOverLayer scene]];
+        }
     } else if (sprite.tag == PROJECTILE_TAG) { // projectile
         [_projectiles removeObject:sprite];
     }

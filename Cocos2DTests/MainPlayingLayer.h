@@ -19,6 +19,8 @@
 
     CCLabelTTF *_scoreLabel;
     NSInteger _score;
+
+    NSInteger _lostTargetsCount;
 }
 
 // returns a CCScene that contains the MainPlayingLayer as the only child

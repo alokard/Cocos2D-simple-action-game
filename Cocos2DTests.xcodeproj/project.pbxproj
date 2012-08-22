@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		D61850DE5ED2E0499CDE8495 /* Player@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6185A7BB0D4ACDB939D448F /* Player@2x.png */; };
+		D6185426A9846BB7E4CD4A4E /* GameOverLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D6185BA1111AF200CB8E27FE /* GameOverLayer.m */; };
 		D61856D47B13497220184648 /* Projectile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D618545D5CB6DAF0971A79A0 /* Projectile@2x.png */; };
+		D61857F875077E1E5BFC3360 /* GameAudioEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = D61850B181E1116B31596DC1 /* GameAudioEngine.m */; };
 		D618593AA601D06A49A3B88C /* Target@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D61855C047199DC7D574EC5B /* Target@2x.png */; };
 		D6185E4739C6BC5168158ECA /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6185F6D015EFA1D8A867081 /* Default@2x.png */; };
 		EF31A88F15E3EF0300EABCDD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF31A88E15E3EF0300EABCDD /* QuartzCore.framework */; };
@@ -143,9 +145,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D61850B181E1116B31596DC1 /* GameAudioEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameAudioEngine.m; sourceTree = "<group>"; };
+		D618520AB1F526242CA49C68 /* GameOverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverLayer.h; sourceTree = "<group>"; };
 		D618545D5CB6DAF0971A79A0 /* Projectile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Projectile@2x.png"; sourceTree = "<group>"; };
+		D61854C38000147A4BA5A3D3 /* GameAudioEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameAudioEngine.h; sourceTree = "<group>"; };
 		D61855C047199DC7D574EC5B /* Target@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Target@2x.png"; sourceTree = "<group>"; };
 		D6185A7BB0D4ACDB939D448F /* Player@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Player@2x.png"; sourceTree = "<group>"; };
+		D6185BA1111AF200CB8E27FE /* GameOverLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverLayer.m; sourceTree = "<group>"; };
 		D6185F6D015EFA1D8A867081 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/Default@2x.png"; sourceTree = "<group>"; };
 		EF31A88A15E3EF0300EABCDD /* Cocos2DTests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cocos2DTests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF31A88E15E3EF0300EABCDD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -470,6 +476,10 @@
 		EF31A8A015E3EF0300EABCDD /* Cocos2DTests */ = {
 			isa = PBXGroup;
 			children = (
+				D6185BA1111AF200CB8E27FE /* GameOverLayer.m */,
+				D618520AB1F526242CA49C68 /* GameOverLayer.h */,
+				D61850B181E1116B31596DC1 /* GameAudioEngine.m */,
+				D61854C38000147A4BA5A3D3 /* GameAudioEngine.h */,
 				EF31AA1815E3EF0500EABCDD /* AppDelegate.h */,
 				EF31AA1915E3EF0500EABCDD /* AppDelegate.m */,
 				EF31AA1B15E3EF0500EABCDD /* MainPlayingLayer.h */,
@@ -1046,6 +1056,8 @@
 				EF31AA1A15E3EF0500EABCDD /* AppDelegate.m in Sources */,
 				EF31AA1D15E3EF0500EABCDD /* MainPlayingLayer.m in Sources */,
 				EF31AA2015E3EF0500EABCDD /* IntroLayer.m in Sources */,
+				D61857F875077E1E5BFC3360 /* GameAudioEngine.m in Sources */,
+				D6185426A9846BB7E4CD4A4E /* GameOverLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1077,7 +1089,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					NDEBUG,
@@ -1087,6 +1099,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

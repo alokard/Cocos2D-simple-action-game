@@ -3,7 +3,7 @@
 //  Cocos2DTests
 //
 //  Created by Zhenia on 8/21/12.
-//  Copyright __MyCompanyName__ 2012. All rights reserved.
+//  Copyright 111 Minutes 2012. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

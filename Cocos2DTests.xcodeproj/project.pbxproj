@@ -10,6 +10,7 @@
 		D61850DE5ED2E0499CDE8495 /* Player@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6185A7BB0D4ACDB939D448F /* Player@2x.png */; };
 		D6185426A9846BB7E4CD4A4E /* GameOverLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D6185BA1111AF200CB8E27FE /* GameOverLayer.m */; };
 		D61856D47B13497220184648 /* Projectile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D618545D5CB6DAF0971A79A0 /* Projectile@2x.png */; };
+		D618576D685DDA03120EA985 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D618590002952F1199CA580E /* libTestFlight.a */; };
 		D61857F875077E1E5BFC3360 /* GameAudioEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = D61850B181E1116B31596DC1 /* GameAudioEngine.m */; };
 		D618593AA601D06A49A3B88C /* Target@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D61855C047199DC7D574EC5B /* Target@2x.png */; };
 		D6185DD249272C219185942A /* pew-pew.caf in Resources */ = {isa = PBXBuildFile; fileRef = D618524CC988A70C2337B219 /* pew-pew.caf */; };
@@ -150,10 +151,12 @@
 		D61850B181E1116B31596DC1 /* GameAudioEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameAudioEngine.m; sourceTree = "<group>"; };
 		D618520AB1F526242CA49C68 /* GameOverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverLayer.h; sourceTree = "<group>"; };
 		D618524CC988A70C2337B219 /* pew-pew.caf */ = {isa = PBXFileReference; lastKnownFileType = file.caf; name = "pew-pew.caf"; path = "Resources/Audio/pew-pew.caf"; sourceTree = "<group>"; };
+		D6185429EC0186910BCD8587 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestFlight.h; path = libs/TestFlightSDK/TestFlight.h; sourceTree = "<group>"; };
 		D618545D5CB6DAF0971A79A0 /* Projectile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Projectile@2x.png"; sourceTree = "<group>"; };
 		D61854C38000147A4BA5A3D3 /* GameAudioEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameAudioEngine.h; sourceTree = "<group>"; };
 		D61855C047199DC7D574EC5B /* Target@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Target@2x.png"; sourceTree = "<group>"; };
 		D61857E304199FED62B6CCC2 /* background-music.caf */ = {isa = PBXFileReference; lastKnownFileType = file.caf; name = "background-music.caf"; path = "Resources/Audio/background-music.caf"; sourceTree = "<group>"; };
+		D618590002952F1199CA580E /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTestFlight.a; path = libs/TestFlightSDK/libTestFlight.a; sourceTree = "<group>"; };
 		D6185A7BB0D4ACDB939D448F /* Player@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Player@2x.png"; sourceTree = "<group>"; };
 		D6185BA1111AF200CB8E27FE /* GameOverLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverLayer.m; sourceTree = "<group>"; };
 		D6185F6D015EFA1D8A867081 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/Default@2x.png"; sourceTree = "<group>"; };
@@ -438,6 +441,7 @@
 				EF31A89B15E3EF0300EABCDD /* Foundation.framework in Frameworks */,
 				EF31A89D15E3EF0300EABCDD /* CoreGraphics.framework in Frameworks */,
 				EF31A89F15E3EF0300EABCDD /* GameKit.framework in Frameworks */,
+				D618576D685DDA03120EA985 /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,6 +455,15 @@
 				D61857E304199FED62B6CCC2 /* background-music.caf */,
 			);
 			name = Audio;
+			sourceTree = "<group>";
+		};
+		D6185A7396BD586F0907DECB /* TestFlightSDK */ = {
+			isa = PBXGroup;
+			children = (
+				D6185429EC0186910BCD8587 /* TestFlight.h */,
+				D618590002952F1199CA580E /* libTestFlight.a */,
+			);
+			name = TestFlightSDK;
 			sourceTree = "<group>";
 		};
 		EF31A87F15E3EF0200EABCDD = {
@@ -538,6 +551,7 @@
 				EF31A8BC15E3EF0300EABCDD /* cocos2d */,
 				EF31A9D315E3EF0500EABCDD /* CocosDenshion */,
 				EF31A9E215E3EF0500EABCDD /* kazmath */,
+				D6185A7396BD586F0907DECB /* TestFlightSDK */,
 			);
 			name = libs;
 			sourceTree = "<group>";
@@ -1132,6 +1146,7 @@
 				HEADER_SEARCH_PATHS = "\"Cocos2DTests/libs/kazmath/include\"";
 				INFOPLIST_FILE = Cocos2DTests/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				LIBRARY_SEARCH_PATHS = "\"${PROJECT_DIR}/Cocos2DTests/libs/TestFlightSDK\"/**";
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
@@ -1152,6 +1167,7 @@
 				HEADER_SEARCH_PATHS = "\"Cocos2DTests/libs/kazmath/include\"";
 				INFOPLIST_FILE = Cocos2DTests/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				LIBRARY_SEARCH_PATHS = "\"${PROJECT_DIR}/Cocos2DTests/libs/TestFlightSDK\"/**";
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",

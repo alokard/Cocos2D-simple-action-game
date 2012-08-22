@@ -3,13 +3,16 @@
 //  Cocos2DTests
 //
 //  Created by Zhenia on 8/21/12.
-//  Copyright __MyCompanyName__ 2012. All rights reserved.
+//  Copyright 111 Minutes 2012. All rights reserved.
 //
 
 #import "cocos2d.h"
 
 #import "AppDelegate.h"
 #import "IntroLayer.h"
+#import "TestFlight.h"
+
+#define TESTFLIGHT_TEAM_TOKEN @"91923d8cc48431ef1bfd3ec9f987e72c_NjA0ODQyMDEyLTA2LTA3IDA2OjEyOjEzLjMwNjkyMQ"
 
 @implementation AppController
 
@@ -17,6 +20,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [TestFlight takeOff:TESTFLIGHT_TEAM_TOKEN];
+    [TestFlight passCheckpoint:@"Start"];
+
 	// Create the main window
 	window_ = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 

@@ -14,6 +14,8 @@
 // Needed to obtain the Navigation Controller
 #import "AppDelegate.h"
 #import "GameOverLayer.h"
+#import "GameAudioEngine.h"
+#import "SimpleAudioEngine.h"
 
 #pragma mark defines
 
@@ -44,9 +46,9 @@
 // on "dealloc" you need to release all your retained objects
 - (void) dealloc
 {
-	// in case you have something to dealloc, do it in this method
-	// in this particular example nothing needs to be released.
-	// cocos2d will automatically release all the children (Label)
+	[_player release];
+    _player = nil;
+
     [_targets release];
     _targets = nil;
 
@@ -56,6 +58,9 @@
 	// don't forget to call "super dealloc"
     [_scoreLabel release];
     _scoreLabel = nil;
+
+    [_nextProjectile release], _nextProjectile = nil;
+
     [super dealloc];
 }
 
@@ -78,6 +83,7 @@
         [self schedule:@selector(gameLoop:) interval:1.0];
         [self schedule:@selector(updateGame:)];
 
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"background-music.caf"];
 //        [self createMenu];
 
 
@@ -104,10 +110,10 @@
 // ask director for the window size
     CGSize size = [[CCDirector sharedDirector] winSize];
 
-    CCSprite *player = [CCSprite spriteWithFile:@"Player.png"];
-    player.position = ccp(player.contentSize.width/2, size.height/2);
+    _player = [[CCSprite spriteWithFile:@"Player.png"] retain];
+    _player.position = ccp(_player.contentSize.width/2, size.height/2);
 
-    [self addChild: player];
+    [self addChild: _player];
 }
 
 #pragma mark logic
@@ -196,7 +202,8 @@
         [_targets removeObject:sprite];
         _lostTargetsCount++;
         if (_lostTargetsCount > 2) {
-            [[CCDirector sharedDirector] replaceScene:[GameOverLayer scene]];
+            [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[GameOverLayer scene]]];
         }
     } else if (sprite.tag == PROJECTILE_TAG) { // projectile
         [_projectiles removeObject:sprite];
@@ -267,42 +274,64 @@
 
 - (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
 
+    if (_nextProjectile != nil) return;
+
     UITouch *touch = [touches anyObject];
     CGPoint location = [touch locationInView:[touch view]];
     location = [[CCDirector sharedDirector] convertToGL:location];
 
     CGSize size = [[CCDirector sharedDirector] winSize];
-    CCSprite *projectile = [CCSprite spriteWithFile:@"Projectile.png"];
-    projectile.position = ccp(projectile.contentSize.width, size.height/2);
-    projectile.tag = PROJECTILE_TAG;
-    [_projectiles addObject:projectile];
+    _nextProjectile = [[CCSprite spriteWithFile:@"Projectile.png"] retain];
+    _nextProjectile.position = ccp(_nextProjectile.contentSize.width, size.height/2);
+    _nextProjectile.tag = PROJECTILE_TAG;
 
-    int offsetX = (int) (location.x - projectile.position.x);
-    int offsetY = (int) (location.y - projectile.position.y);
+    int offsetX = (int) (location.x - _nextProjectile.position.x);
+    int offsetY = (int) (location.y - _nextProjectile.position.y);
 
     // Bail out if we are shooting down or backwards
     if (offsetX <=0) {
+        [_nextProjectile release];
+        _nextProjectile = nil;
         return;
     }
 
-    [self addChild:projectile];
-
     //determine real coordinate to shoot
-    int realX = (int) (size.width + projectile.contentSize.width/2);
+    int realX = (int) (size.width + _nextProjectile.contentSize.width/2);
     float ratio = (float)offsetY / (float) offsetX;
-    int realY = (int) ((realX * ratio) + projectile.position.y);
+    int realY = (int) ((realX * ratio) + _nextProjectile.position.y);
     CGPoint realDestination = ccp(realX, realY);
 
     // Determine the length of how far we're shooting
-    int offRealX = (int) (realX - projectile.position.x);
-    int offRealY = (int) (realY - projectile.position.y);
+    int offRealX = (int) (realX - _nextProjectile.position.x);
+    int offRealY = (int) (realY - _nextProjectile.position.y);
     float length = sqrtf((offRealX*offRealX)+(offRealY*offRealY));
     float velocity = 480/1; // 480pixels/1sec
     float realMoveDuration = length/velocity;
 
-    [projectile runAction:[CCSequence actions:
+    // Determine angle to face
+    float angleRadians = atanf((float)offRealY / (float)offRealX);
+    float angleDegrees = CC_RADIANS_TO_DEGREES(angleRadians);
+    float cocosAngle = -1 * angleDegrees;
+
+    float rotateSpeed = (float) (0.5 / M_PI); // Would take 0.5 seconds to rotate 0.5 radians, or half a circle
+    float rotateDuration = (float) fabs(angleRadians * rotateSpeed);
+
+    [_player runAction:[CCSequence actions:[CCRotateTo actionWithDuration:rotateDuration angle:cocosAngle],
+                                           [CCCallFunc actionWithTarget:self selector:@selector(finishShoot)], nil]];
+
+    [_nextProjectile runAction:[CCSequence actions:
             [CCMoveTo actionWithDuration:realMoveDuration position:realDestination],
             [CCCallFuncN actionWithTarget:self selector:@selector(spriteMoveFinished:)], nil]];
+
+    [[SimpleAudioEngine sharedEngine] playEffect:@"pew-pew.caf"];
+}
+
+- (void)finishShoot {
+    [_projectiles addObject:_nextProjectile];
+    [self addChild:_nextProjectile];
+
+    [_nextProjectile release];
+    _nextProjectile = nil;
 }
 
 

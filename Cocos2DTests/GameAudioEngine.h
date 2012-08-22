@@ -7,18 +7,17 @@
 //
 
 #import <AVFoundation/AVFoundation.h>
+#import <AudioToolbox/AudioToolbox.h>
 
 @interface GameAudioEngine : NSObject <AVAudioPlayerDelegate> {
     AVAudioPlayer *_backgroundMusicPlayer;
+    SystemSoundID _effectSoundID;
 }
-+ (GameAudioEngine *)instance;
-
 
 + (GameAudioEngine *)sharedEngine;
 
 - (void)playBackgroundMusicFilename:(NSString *)backgroundAudioFile ofType:(NSString *)extension;
-
+- (void)stopBackgroundMusic;
 - (void)playEffect:(NSString *)effectName ofType:(NSString *)extension;
-
 
 @end

@@ -17,6 +17,9 @@
     NSMutableArray *_targets;
     NSMutableArray *_projectiles;
 
+    CCSprite *_player;
+    CCSprite *_nextProjectile;
+
     CCLabelTTF *_scoreLabel;
     NSInteger _score;
 

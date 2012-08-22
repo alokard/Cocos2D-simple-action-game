@@ -12,7 +12,9 @@
 		D61856D47B13497220184648 /* Projectile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D618545D5CB6DAF0971A79A0 /* Projectile@2x.png */; };
 		D61857F875077E1E5BFC3360 /* GameAudioEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = D61850B181E1116B31596DC1 /* GameAudioEngine.m */; };
 		D618593AA601D06A49A3B88C /* Target@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D61855C047199DC7D574EC5B /* Target@2x.png */; };
+		D6185DD249272C219185942A /* pew-pew.caf in Resources */ = {isa = PBXBuildFile; fileRef = D618524CC988A70C2337B219 /* pew-pew.caf */; };
 		D6185E4739C6BC5168158ECA /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6185F6D015EFA1D8A867081 /* Default@2x.png */; };
+		D6185F1B09C2151C758C1B1C /* background-music.caf in Resources */ = {isa = PBXBuildFile; fileRef = D61857E304199FED62B6CCC2 /* background-music.caf */; };
 		EF31A88F15E3EF0300EABCDD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF31A88E15E3EF0300EABCDD /* QuartzCore.framework */; };
 		EF31A89115E3EF0300EABCDD /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF31A89015E3EF0300EABCDD /* OpenGLES.framework */; };
 		EF31A89315E3EF0300EABCDD /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF31A89215E3EF0300EABCDD /* OpenAL.framework */; };
@@ -147,9 +149,11 @@
 /* Begin PBXFileReference section */
 		D61850B181E1116B31596DC1 /* GameAudioEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameAudioEngine.m; sourceTree = "<group>"; };
 		D618520AB1F526242CA49C68 /* GameOverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverLayer.h; sourceTree = "<group>"; };
+		D618524CC988A70C2337B219 /* pew-pew.caf */ = {isa = PBXFileReference; lastKnownFileType = file.caf; name = "pew-pew.caf"; path = "Resources/Audio/pew-pew.caf"; sourceTree = "<group>"; };
 		D618545D5CB6DAF0971A79A0 /* Projectile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Projectile@2x.png"; sourceTree = "<group>"; };
 		D61854C38000147A4BA5A3D3 /* GameAudioEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameAudioEngine.h; sourceTree = "<group>"; };
 		D61855C047199DC7D574EC5B /* Target@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Target@2x.png"; sourceTree = "<group>"; };
+		D61857E304199FED62B6CCC2 /* background-music.caf */ = {isa = PBXFileReference; lastKnownFileType = file.caf; name = "background-music.caf"; path = "Resources/Audio/background-music.caf"; sourceTree = "<group>"; };
 		D6185A7BB0D4ACDB939D448F /* Player@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Player@2x.png"; sourceTree = "<group>"; };
 		D6185BA1111AF200CB8E27FE /* GameOverLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverLayer.m; sourceTree = "<group>"; };
 		D6185F6D015EFA1D8A867081 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/Default@2x.png"; sourceTree = "<group>"; };
@@ -440,6 +444,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D618534FD6F113750DD50247 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				D618524CC988A70C2337B219 /* pew-pew.caf */,
+				D61857E304199FED62B6CCC2 /* background-music.caf */,
+			);
+			name = Audio;
+			sourceTree = "<group>";
+		};
 		EF31A87F15E3EF0200EABCDD = {
 			isa = PBXGroup;
 			children = (
@@ -511,6 +524,7 @@
 				EF31A8B615E3EF0300EABCDD /* Icon@2x.png */,
 				EF31A8B815E3EF0300EABCDD /* Info.plist */,
 				EF31A8B915E3EF0300EABCDD /* iTunesArtwork */,
+				D618534FD6F113750DD50247 /* Audio */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -942,6 +956,8 @@
 				D61850DE5ED2E0499CDE8495 /* Player@2x.png in Resources */,
 				D61856D47B13497220184648 /* Projectile@2x.png in Resources */,
 				D618593AA601D06A49A3B88C /* Target@2x.png in Resources */,
+				D6185F1B09C2151C758C1B1C /* background-music.caf in Resources */,
+				D6185DD249272C219185942A /* pew-pew.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

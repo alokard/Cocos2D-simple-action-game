@@ -26,7 +26,19 @@
     [_backgroundMusicPlayer release];
     _backgroundMusicPlayer = nil;
 
+    AudioServicesDisposeSystemSoundID(_effectSoundID);
+
     [super dealloc];
+}
+
+- (id)init {
+
+    if ((self = [super init])) {
+        [[AVAudioSession sharedInstance] setCategory: AVAudioSessionCategorySoloAmbient error: nil];
+        [[AVAudioSession sharedInstance] setActive:YES error:nil];
+    }
+
+    return self;
 }
 
 #pragma mark Main audio logic
@@ -37,10 +49,12 @@
         [_backgroundMusicPlayer setDelegate:nil];
         [_backgroundMusicPlayer release];
     }
+
     NSString *pathToAudio = [[NSBundle mainBundle] pathForResource:backgroundAudioFile ofType:extension];
     NSError *error = nil;
     _backgroundMusicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:pathToAudio]
                                                                     error:&error];
+    [_backgroundMusicPlayer setDelegate:self];
     [_backgroundMusicPlayer prepareToPlay];
     [_backgroundMusicPlayer play];
 }
@@ -50,9 +64,9 @@
     NSString *pathToEffect = [[NSBundle mainBundle] pathForResource:effectName ofType:extension];
     NSURL *effectURL = [NSURL fileURLWithPath:pathToEffect];
 
-    SystemSoundID effectSoundID;
-    AudioServicesCreateSystemSoundID((CFURLRef)effectURL, &effectSoundID);
-    AudioServicesPlaySystemSound(effectSoundID);
+
+    AudioServicesCreateSystemSoundID((CFURLRef)effectURL, &_effectSoundID);
+    AudioServicesPlaySystemSound(_effectSoundID);
 }
 
 - (void)stopBackgroundMusic {
